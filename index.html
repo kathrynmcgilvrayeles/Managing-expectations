@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Case Study: Managing Expectations</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1.5rem;
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+        }
+
+        .question-wrapper {
+            margin-bottom: 1.5rem;
+            background-color: #ffffff;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .question-icon-container {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            background-color: #025159;
+            border-radius: 9999px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .question-icon-container:hover {
+            background-color: #d98e04;
+        }
+
+        .question-text-container {
+            flex-grow: 1;
+            transform-origin: top;
+            transform: scaleY(0);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            will-change: transform, opacity;
+            line-height: 1.6;
+            padding-top: 0;
+            padding-bottom: 0;
+            overflow: hidden; /* Ensure content is hidden when scaled down */
+        }
+
+        .question-text-container.active {
+            transform: scaleY(1);
+            opacity: 1;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .question-text {
+            font-weight: 400;
+            color: #025159;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Question 1 -->
+        <div class="question-wrapper">
+            <button class="question-icon-container" onclick="toggleQuestion(this)">?</button>
+            <div class="question-text-container">
+                <p class="question-text">
+                    What specific questions would you ask to understand her immediate priorities and the underlying reasons for the sales dip?
+                </p>
+            </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question-wrapper">
+            <button class="question-icon-container" onclick="toggleQuestion(this)">?</button>
+            <div class="question-text-container">
+                <p class="question-text">
+                    How would you articulate a realistic scope for a first engagement, ensuring it aligns with her urgent need but avoids promising an instant, all-encompassing solution?
+                </p>
+            </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="question-wrapper">
+            <button class="question-icon-container" onclick="toggleQuestion(this)">?</button>
+            <div class="question-text-container">
+                <p class="question-text">
+                    What initial steps would you propose that demonstrate value quickly while setting the stage for potential future work?
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleQuestion(button) {
+            const container = button.nextElementSibling;
+            container.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>
